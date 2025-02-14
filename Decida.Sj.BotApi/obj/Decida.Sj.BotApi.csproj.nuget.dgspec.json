@@ -1,0 +1,338 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.BotApi\\Decida.Sj.BotApi.csproj": {}
+  },
+  "projects": {
+    "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Applications\\Decida.Sj.Applications.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Applications\\Decida.Sj.Applications.csproj",
+        "projectName": "Decida.Sj.Applications",
+        "projectPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Applications\\Decida.Sj.Applications.csproj",
+        "packagesPath": "C:\\Users\\virtu\\.nuget\\packages\\",
+        "outputPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Applications\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\virtu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Core\\Decida.Sj.Core.csproj": {
+                "projectPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Core\\Decida.Sj.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.BotApi\\Decida.Sj.BotApi.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.BotApi\\Decida.Sj.BotApi.csproj",
+        "projectName": "Decida.Sj.BotApi",
+        "projectPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.BotApi\\Decida.Sj.BotApi.csproj",
+        "packagesPath": "C:\\Users\\virtu\\.nuget\\packages\\",
+        "outputPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.BotApi\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\virtu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Applications\\Decida.Sj.Applications.csproj": {
+                "projectPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Applications\\Decida.Sj.Applications.csproj"
+              },
+              "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Core\\Decida.Sj.Core.csproj": {
+                "projectPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Core\\Decida.Sj.Core.csproj"
+              },
+              "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Infrastructure\\Decida.Sj.Infrastructure.csproj": {
+                "projectPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Infrastructure\\Decida.Sj.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Microsoft.VisualStudio.Azure.Containers.Tools.Targets": {
+              "target": "Package",
+              "version": "[1.21.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Core\\Decida.Sj.Core.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Core\\Decida.Sj.Core.csproj",
+        "projectName": "Decida.Sj.Core",
+        "projectPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Core\\Decida.Sj.Core.csproj",
+        "packagesPath": "C:\\Users\\virtu\\.nuget\\packages\\",
+        "outputPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Core\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\virtu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Infrastructure\\Decida.Sj.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Infrastructure\\Decida.Sj.Infrastructure.csproj",
+        "projectName": "Decida.Sj.Infrastructure",
+        "projectPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Infrastructure\\Decida.Sj.Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\virtu\\.nuget\\packages\\",
+        "outputPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Infrastructure\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\virtu\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "C:\\Program Files\\dotnet\\library-packs": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0": {
+            "targetAlias": "net8.0",
+            "projectReferences": {
+              "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Applications\\Decida.Sj.Applications.csproj": {
+                "projectPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Applications\\Decida.Sj.Applications.csproj"
+              },
+              "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Core\\Decida.Sj.Core.csproj": {
+                "projectPath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Core\\Decida.Sj.Core.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        }
+      },
+      "frameworks": {
+        "net8.0": {
+          "targetAlias": "net8.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.1.35, )"
+            },
+            "Microsoft.Extensions.DependencyInjection.Abstractions": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "Microsoft.Extensions.Options": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[9.2.0, )"
+            },
+            "Oracle.ManagedDataAccess.Core": {
+              "target": "Package",
+              "version": "[23.7.0, )"
+            },
+            "System.Configuration.ConfigurationManager": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            },
+            "System.Security.Permissions": {
+              "target": "Package",
+              "version": "[9.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.300/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

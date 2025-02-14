@@ -1,0 +1,11 @@
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\bin\Debug\net8.0\Decida.Sj.Core.deps.json
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\bin\Debug\net8.0\Decida.Sj.Core.dll
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\bin\Debug\net8.0\Decida.Sj.Core.pdb
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\obj\Debug\net8.0\Decida.Sj.Core.GeneratedMSBuildEditorConfig.editorconfig
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\obj\Debug\net8.0\Decida.Sj.Core.AssemblyInfoInputs.cache
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\obj\Debug\net8.0\Decida.Sj.Core.AssemblyInfo.cs
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\obj\Debug\net8.0\Decida.Sj.Core.csproj.CoreCompileInputs.cache
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\obj\Debug\net8.0\Decida.Sj.Core.dll
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\obj\Debug\net8.0\refint\Decida.Sj.Core.dll
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\obj\Debug\net8.0\Decida.Sj.Core.pdb
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Core\obj\Debug\net8.0\ref\Decida.Sj.Core.dll

@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\buildMultiTargeting\Decida.Sj.BotApi.props" />
+</Project>

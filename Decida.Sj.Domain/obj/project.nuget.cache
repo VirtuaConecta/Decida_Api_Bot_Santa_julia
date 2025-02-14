@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "AeMMm+oP+QQ=",
+  "success": true,
+  "projectFilePath": "E:\\desenvolvimento_VS2022\\Empresa\\Decida\\Santa_Julia\\Decida.Sj.Bot\\Decida.Sj.Domain\\Decida.Sj.Domain.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\virtu\\.nuget\\packages\\system.configuration.configurationmanager\\9.0.1\\system.configuration.configurationmanager.9.0.1.nupkg.sha512",
+    "C:\\Users\\virtu\\.nuget\\packages\\system.diagnostics.eventlog\\9.0.1\\system.diagnostics.eventlog.9.0.1.nupkg.sha512",
+    "C:\\Users\\virtu\\.nuget\\packages\\system.security.cryptography.protecteddata\\9.0.1\\system.security.cryptography.protecteddata.9.0.1.nupkg.sha512"
+  ],
+  "logs": []
+}

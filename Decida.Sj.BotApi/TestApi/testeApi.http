@@ -1,0 +1,11 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+
+ GET http://localhost:5032/api/v1/Pacient/73865184900
+
+
+ ###
+  GET http://localhost:5032/api/v1/Protocol
+ 
+   ###
+  GET http://localhost:5001/api/v1/Health
+ 

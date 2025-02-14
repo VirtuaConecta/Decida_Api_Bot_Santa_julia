@@ -1,0 +1,104 @@
+[
+  {
+    "ContainingType": "Decida.Sj.BotApi.Controllers.AgendaController",
+    "Method": "BuscarAgenda",
+    "RelativePath": "api/v1/Agenda/{convenio}/{especialidade}/{cd_pessoa_fisica}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "convenio",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "especialidade",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "cd_pessoa_fisica",
+        "Type": "System.Nullable\u00601[[System.Int32, System.Private.CoreLib, Version=8.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Decida.Sj.BotApi.Controllers.HealthController",
+    "Method": "getHealthPlan",
+    "RelativePath": "api/v1/Health",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Decida.Sj.BotApi.Controllers.MedicController",
+    "Method": "getMedic",
+    "RelativePath": "api/v1/Medic",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Decida.Sj.BotApi.Controllers.MedicalSpecialtyController",
+    "Method": "getMedicalSpecialty",
+    "RelativePath": "api/v1/MedicalSpecialty",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Decida.Sj.BotApi.Controllers.PacientController",
+    "Method": "getCpf",
+    "RelativePath": "api/v1/Pacient/{cpf}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "cpf",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Decida.Sj.BotApi.Controllers.ProtocolController",
+    "Method": "GetProtocol",
+    "RelativePath": "api/v1/Protocol",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Decida.Sj.BotApi.Controllers.WeatherForecastController",
+    "Method": "Get",
+    "RelativePath": "WeatherForecast",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Decida.Sj.BotApi.WeatherForecast, Decida.Sj.BotApi, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\bin\Release\net8.0\Decida.Sj.Applications.deps.json
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\bin\Release\net8.0\Decida.Sj.Applications.dll
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\bin\Release\net8.0\Decida.Sj.Applications.pdb
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\bin\Release\net8.0\Decida.Sj.Core.dll
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\bin\Release\net8.0\Decida.Sj.Core.pdb
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\obj\Release\net8.0\Decida.Sj.Applications.csproj.AssemblyReference.cache
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\obj\Release\net8.0\Decida.Sj.Applications.GeneratedMSBuildEditorConfig.editorconfig
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\obj\Release\net8.0\Decida.Sj.Applications.AssemblyInfoInputs.cache
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\obj\Release\net8.0\Decida.Sj.Applications.AssemblyInfo.cs
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\obj\Release\net8.0\Decida.Sj.Applications.csproj.CoreCompileInputs.cache
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\obj\Release\net8.0\Decida.S.58970C61.Up2Date
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\obj\Release\net8.0\Decida.Sj.Applications.dll
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\obj\Release\net8.0\refint\Decida.Sj.Applications.dll
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\obj\Release\net8.0\Decida.Sj.Applications.pdb
+E:\desenvolvimento_VS2022\Empresa\Decida\Santa_Julia\Decida.Sj.Bot\Decida.Sj.Applications\obj\Release\net8.0\ref\Decida.Sj.Applications.dll

@@ -1,0 +1,22 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>05b1adbb-ab98-481f-86dd-cfb1ee3f3844</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="9.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Decida.Sj.Applications\Decida.Sj.Applications.csproj" />
+    <ProjectReference Include="..\Decida.Sj.Core\Decida.Sj.Core.csproj" />
+    <ProjectReference Include="..\Decida.Sj.Infrastructure\Decida.Sj.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
