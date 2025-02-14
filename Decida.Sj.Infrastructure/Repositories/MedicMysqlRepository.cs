@@ -45,6 +45,28 @@ namespace Decida.Sj.Infrastructure.Repositories
             return MadicalRepoList;
         }
 
+        public async Task<MedicEntity> GetMedByIdRepsitory(int id)
+        {
+            var MadicalRepoList = new  MedicEntity();
+            try
+            {
+                string sql = @"SELECT ID_MEDICO,CD_PESSOA_FISICA,NM_PESSOA_FISICA FROM
+                                MEDICOS where ID_MEDICO=@ID_MEDICO";
+                DynamicParameters p = new DynamicParameters();
+
+                p.Add("@ID_MEDICO", id);
+
+                using (var conn = new MySqlConnection(_connectionString))
+                {
+                    MadicalRepoList = (await conn.QueryAsync<MedicEntity>(sql,p)).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return MadicalRepoList;
+        }
 
 
 

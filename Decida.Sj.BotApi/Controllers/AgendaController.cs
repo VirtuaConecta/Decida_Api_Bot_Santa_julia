@@ -26,6 +26,8 @@ namespace Decida.Sj.BotApi.Controllers
 
 
                 var (status, agendas,hash) = await _rank.Execute(convenio, especialidade, cd_pessoa_fisica);
+
+                Console.WriteLine($"status: {status} agendas: {agendas}"); 
              
                 if (status)
                 {

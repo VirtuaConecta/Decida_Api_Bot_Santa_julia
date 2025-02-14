@@ -10,5 +10,6 @@ namespace Decida.Sj.Applications.Interfaces.Repositories
     public interface IHealthPlanMysqlRepository
     {
         Task<List<HealthPlanEntity>> GetHelthPlanList();
+        Task<HealthPlanEntity> GetHelthPlanByID(int id);
     }
 }

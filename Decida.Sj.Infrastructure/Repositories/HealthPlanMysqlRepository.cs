@@ -45,6 +45,31 @@ namespace Decida.Sj.Infrastructure.Repositories
         }
 
 
+        public async Task<HealthPlanEntity> GetHelthPlanByID(int id)
+        {
+            var convenios = new HealthPlanEntity();
+
+
+            try
+            {
+                string sql = @"SELECT ID_CONVENIO,CD_CONVENIO,DS_CONVENIO FROM
+                                CONVENIOS where ID_CONVENIO=@ID_CONVENIO";
+
+                DynamicParameters p = new DynamicParameters();
+                p.Add("@ID_CONVENIO", id);
+
+                using (var conn = new MySqlConnection(_connectionString))
+                {
+                    convenios = (await conn.QueryAsync<HealthPlanEntity>(sql,p)).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return convenios;
+        }
+
 
 
 

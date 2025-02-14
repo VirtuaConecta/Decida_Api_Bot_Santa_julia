@@ -44,6 +44,30 @@ namespace Decida.Sj.Infrastructure.Repositories
             return MadicalEspcRepoList;
         }
 
+        public async Task<MedicalSpecialtyEntity> GetMedSpecByIdRepsitory(int id)
+        {
+            var MedicalEspcRepoById = new MedicalSpecialtyEntity();
+            try
+            {
+                string sql = @"SELECT ID_ESPECIALIDADE,CD_ESPECIALIDADE,DS_ESPECIALIDADE FROM
+                                ESPECIALIDADES where ID_ESPECIALIDADE=@ID_ESPECIALIDADE";
+
+                DynamicParameters p = new DynamicParameters();
+
+                p.Add("@ID_ESPECIALIDADE", id);
+
+                using (var conn = new MySqlConnection(_connectionString))
+                {
+                    MedicalEspcRepoById = (await conn.QueryAsync<MedicalSpecialtyEntity>(sql,p)).FirstOrDefault();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return MedicalEspcRepoById;
+        }
+
 
 
 

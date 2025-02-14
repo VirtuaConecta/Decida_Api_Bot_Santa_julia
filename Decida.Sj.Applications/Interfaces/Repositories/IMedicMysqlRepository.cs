@@ -11,5 +11,6 @@ namespace Decida.Sj.Applications.Interfaces.Repositories
     public interface IMedicMysqlRepository
     {
         Task<List<MedicEntity>> GetMedListRepsitory();
+        Task<MedicEntity> GetMedByIdRepsitory(int id);
     }
 }
