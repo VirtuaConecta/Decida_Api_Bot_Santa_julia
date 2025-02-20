@@ -1,5 +1,5 @@
 ﻿using Decida.Sj.Core.Entities;
-using Decida.Sj.Core.Entity;
+using Decida.Sj.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;

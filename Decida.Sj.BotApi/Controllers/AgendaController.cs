@@ -1,6 +1,10 @@
-﻿using Decida.Sj.Applications.Interfaces.UseCases;
+﻿ 
+using Decida.Sj.Applications.Interfaces.UseCases;
+using Decida.Sj.Applications.Model;
+using Decida.Sj.Applications.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using System.Security.Policy;
 
 namespace Decida.Sj.BotApi.Controllers
 {
@@ -9,10 +13,14 @@ namespace Decida.Sj.BotApi.Controllers
     public class AgendaController : ControllerBase
     {
         private readonly IGetRankAgendaByFilterUseCase _rank;
+        private readonly UtilitiesService _utilitiesService;
+        private readonly IInsertNewAgendaToPacientUseCase _insertNewAgendaToPacientUseCase;
 
-        public AgendaController(IGetRankAgendaByFilterUseCase rank)
+        public AgendaController(IGetRankAgendaByFilterUseCase rank, UtilitiesService utilitiesService, IInsertNewAgendaToPacientUseCase insertNewAgendaToPacientUseCase)
         {
             _rank = rank;
+            _utilitiesService = utilitiesService;
+            _insertNewAgendaToPacientUseCase = insertNewAgendaToPacientUseCase;
         }
 
 
@@ -29,7 +37,7 @@ namespace Decida.Sj.BotApi.Controllers
 
                 Console.WriteLine($"status: {status} agendas: {agendas}"); 
              
-                if (status)
+                if (status && !string.IsNullOrEmpty(agendas))
                 {
                     return Ok(new
                     {
@@ -64,6 +72,98 @@ namespace Decida.Sj.BotApi.Controllers
                 hash = "nd",
                 status = false
             });
+        }
+
+
+        [HttpGet("validaHash/{id}/{hash}")]
+        public async Task<IActionResult> ValidaEscolha(int id, string hash)
+        {
+
+            try
+            {
+                Console.WriteLine($"Id: {id} hash: {hash} ");
+
+
+                var (status, agenda) = _utilitiesService.DecodeAgendaHash(id,hash);
+
+                Console.WriteLine($"status: {status} agendas: {agenda}");
+
+                if (status && !string.IsNullOrEmpty(agenda))
+                {
+                    return Ok(new
+                    {
+                        escolha = agenda,
+                        
+                        status = true
+                    });
+                }
+                else
+                {
+
+                    Ok(new
+                    {
+                        escolha = "nd",
+                       
+                        status = false
+                    });
+
+                }
+            }
+            catch (Exception)
+            {
+
+
+            }
+
+
+            return BadRequest(new
+            {
+
+                escolha = "nd",
+               
+                status = false
+            });
+        }
+
+
+        [HttpPost("criaAgendamento")]
+         public async Task<IActionResult> PostAgenda([FromBody] RequestAgendaDTO agenda )
+        {
+            try
+            {
+                var (status, message) = await _insertNewAgendaToPacientUseCase.Execute(agenda);
+                if (status && !string.IsNullOrEmpty(message))
+                {
+                    return Ok(new
+                    {
+                        mensagem = message,
+
+                        status = true
+                    });
+                }
+                else
+                {
+                    return BadRequest(new
+                    {
+
+                        mensagem = message,
+
+                        status = false
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+
+                return BadRequest(new
+                {
+
+                    mensagem = ex.Message,
+
+                    status = false
+                });
+            }
+
         }
     }
 }

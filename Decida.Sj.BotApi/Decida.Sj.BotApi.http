@@ -2,3 +2,28 @@
 
 GET http://localhost:5001/api/v1/Agenda/12/3
 Accept: application/json
+
+
+###
+GET http://localhost:5001/api/v1/Agenda/validaHash/1/W3siaW5kZXgiOjEsImNkX2FnZW5kYSI6MjI2LCJjZF9wZXNzb2FfZmlzaWNhIjoxMzE5NTksIm5tX3Blc3NvYV9maXNpY2EiOiJMRUlMSUFOIERFIFNPVVpBIEFNT1JJTSIsImRpYSI6IjE4LzAyLzIwMjUiLCJob3JhIjoiMDg6MDAiLCJEaWFTZW1hbmEiOiJ0ZXLDp2EtZmVpcmEgICJ9LHsiaW5kZXgiOjIsImNkX2FnZW5kYSI6MjI2LCJjZF9wZXNzb2FfZmlzaWNhIjoxMzE5NTksIm5tX3Blc3NvYV9maXNpY2EiOiJMRUlMSUFOIERFIFNPVVpBIEFNT1JJTSIsImRpYSI6IjI1LzAyLzIwMjUiLCJob3JhIjoiMDg6MDAiLCJEaWFTZW1hbmEiOiJ0ZXLDp2EtZmVpcmEgICJ9XQ==
+Accept: application/json
+
+
+###
+POST http://localhost:5001/api/v1/Agenda/criaAgendamento
+Accept: application/json
+Content-Type: application/json
+{
+"hash":"W3siaW5kZXgiOjEsImNkX2FnZW5kYSI6MjI2LCJjZF9wZXNzb2FfZmlzaWNhIjoxMzE5NTksIm5tX3Blc3NvYV9maXNpY2EiOiJMRUlMSUFOIERFIFNPVVpBIEFNT1JJTSIsImRpYSI6IjE4LzAyLzIwMjUiLCJob3JhIjoiMDg6MDAiLCJEaWFTZW1hbmEiOiJ0ZXLDp2EtZmVpcmEgICJ9LHsiaW5kZXgiOjIsImNkX2FnZW5kYSI6MjI2LCJjZF9wZXNzb2FfZmlzaWNhIjoxMzE5NTksIm5tX3Blc3NvYV9maXNpY2EiOiJMRUlMSUFOIERFIFNPVVpBIEFNT1JJTSIsImRpYSI6IjI1LzAyLzIwMjUiLCJob3JhIjoiMDg6MDAiLCJEaWFTZW1hbmEiOiJ0ZXLDp2EtZmVpcmEgICJ9XQ==",
+"idAgenda":1, 
+"nrCarteira"  : "324242112123",
+"vencimentoCarteira": "25/12/2028"  
+
+}
+
+###
+GET http://localhost:5001/api/v1/Health/getPlan/1
+Accept: application/json
+
+
+

@@ -10,6 +10,8 @@ using Decida.Sj.Applications.Interfaces.Repositories;
 using Decida.Sj.Core.Entities;
 using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
+
+
 namespace Decida.Sj.Infrastructure.Repositories
 {
    public class HealthPlanMysqlRepository: IHealthPlanMysqlRepository
@@ -71,7 +73,40 @@ namespace Decida.Sj.Infrastructure.Repositories
         }
 
 
+        public async Task<List<PlanCareEntity>> GetPlanListByCompany(int id_convenio)
+        {
+            var plans = new List<PlanCareEntity>();
+            try
+            {
+                string sql = @"
+            SELECT 
+                p.INDICE as Sequence,
+                p.CD_CONVENIO AS CdConvenio,
+                p.CD_CATEGORIA AS CdCategoria,
+                p.CD_PLANO AS CdPlano,
+                p.DS_PLANO AS DsPlano
+            FROM 
+                CONVENIO_PLANOS p
+                JOIN CONVENIOS c ON p.CD_CONVENIO = c.CD_CONVENIO
+            WHERE 
+                c.ID_CONVENIO = @ID_CONVENIO
+            ORDER BY 
+                p.CD_PLANO";
 
+                var parameters = new DynamicParameters();
+                parameters.Add("@ID_CONVENIO", id_convenio);
+
+                using (var conn = new MySqlConnection(_connectionString))
+                {
+                    plans = (await conn.QueryAsync<PlanCareEntity>(sql, parameters)).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return plans;
+        }
 
     }
 }

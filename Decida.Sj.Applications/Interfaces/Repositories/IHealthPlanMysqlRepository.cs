@@ -11,5 +11,7 @@ namespace Decida.Sj.Applications.Interfaces.Repositories
     {
         Task<List<HealthPlanEntity>> GetHelthPlanList();
         Task<HealthPlanEntity> GetHelthPlanByID(int id);
+
+        Task<List<PlanCareEntity>> GetPlanListByCompany(int id_convenio);
     }
 }

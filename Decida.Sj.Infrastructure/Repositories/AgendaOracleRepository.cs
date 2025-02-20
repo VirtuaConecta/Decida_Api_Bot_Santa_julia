@@ -5,16 +5,18 @@ using Decida.Sj.Core.Entities;
 using Oracle.ManagedDataAccess.Client;
 using Microsoft.Extensions.Options;
 using System.Data;
-using Decida.Sj.Core.Entity;
+using Decida.Sj.Core.Entities;
 namespace Decida.Sj.Infrastructure.Repositories
 {
     public class AgendaOracleRepository : IAgendaOracleRepository
     {
         private readonly string _connectionString;
+        private readonly string _userTasy;
 
-        public AgendaOracleRepository(IOptions<ConnectionStringsOptionsDTO> connOptions)
+        public AgendaOracleRepository(IOptions<ConnectionStringsOptionsDTO> connOptions, IOptions<ConfigApiOptionsDTO> configApiOptions)
         {
             _connectionString = connOptions.Value.OracleDb;
+            _userTasy = configApiOptions.Value.UserTasy;
         }
 
         public async Task<List<AgendaEntity>?> GetAgendaByFIltersRepoAsync(int id_convenio, int id_especialidade, int? cd_pessoa_fisica)
@@ -23,14 +25,16 @@ namespace Decida.Sj.Infrastructure.Repositories
 
             // Query com param nomeado :pCpf para Oracle
               string sql = @"
-           SELECT t.DIA Dia,t.HORA Hora,t.DIA_SEMANA DiaSemana,t.RANK Rank,t.CD_AGENDA CdAgenda,t.HORA_INICIAL HoraInicial,
-            t.HORA_FINAL HoraFinal,t.cd_pessoa_fisica  CdPessoaFisica,f.nm_pessoa_fisica NmPessoaFisica  FROM (
-            SELECT to_char(DT_AGENDA,'dd/mm/yyyy') DIA, to_char(DT_AGENDA, 'hh24:mi') HORA, to_char(DT_AGENDA, 'day') DIA_SEMANA, RANK() OVER(PARTITION BY DIA,HORA_INICIAL ORDER BY DT_AGENDA) RANK,
-            CD_AGENDA, HORA_INICIAL, HORA_FINAL ,cd_pessoa_fisica
+           SELECT t.NR_SEQUENCIA NrSequencia, t.DIA Dia, t.HORA Hora, t.DIA_SEMANA DiaSemana, t.RANK Rank, 
+               t.CD_AGENDA CdAgenda, t.HORA_INICIAL HoraInicial, t.HORA_FINAL HoraFinal,
+               t.cd_pessoa_fisica AS CdPessoaFisica, f.nm_pessoa_fisica NmPessoaFisica,,e.ds_especialidade   FROM (
+            SELECT NR_SEQUENCIA,to_char(DT_AGENDA,'dd/mm/yyyy') DIA, to_char(DT_AGENDA, 'hh24:mi') HORA, to_char(DT_AGENDA, 'day') DIA_SEMANA, RANK() OVER(PARTITION BY DIA,HORA_INICIAL ORDER BY DT_AGENDA) RANK,
+            CD_AGENDA, HORA_INICIAL, HORA_FINAL ,cd_pessoa_fisica,cd_especialidade
 
             FROM (
 
-            SELECT A.CD_AGENDA, DT_AGENDA, to_char(DT_AGENDA, 'yyyy-mm-dd') DIA, to_char(DT_AGENDA, 'hh24') || ':00' HORA_INICIAL, to_char(DT_AGENDA + interval '1' hour , 'hh24') || ':00' HORA_FINAL,a.cd_pessoa_fisica
+            SELECT ac.NR_SEQUENCIA,A.CD_AGENDA, DT_AGENDA, to_char(DT_AGENDA, 'yyyy-mm-dd') DIA, to_char(DT_AGENDA, 'hh24') || ':00' HORA_INICIAL, to_char(DT_AGENDA + interval '1' hour , 'hh24') || ':00' HORA_FINAL,
+            a.cd_pessoa_fisica,a.cd_especialidade
             FROM TASY.AGENDA_CONSULTA ac INNER JOIN tasy.AGENDA a ON (a.CD_AGENDA=ac.CD_AGENDA)
             WHERE ac.ie_status_agenda = 'L' and a.cd_estabelecimento = 1 AND a.IE_SITUACAO ='A'
             AND A.CD_AGENDA IN (SELECT CD_AGENDA FROM TASY.REGRA_LIB_CONV_AGENDA WHERE CD_CONVENIO = :CD_CONVENIO)
@@ -59,12 +63,12 @@ namespace Decida.Sj.Infrastructure.Repositories
             (QT_IDADE_MAX >='40' OR QT_IDADE_MAX IS NULL) AND QT_PERMISSAO > 0
             AND IE_CLASSIF_AGENDA ='N')) ORDER BY DT_AGENDA) t
             join tasy.pessoa_fisica f on t.cd_pessoa_fisica=f.cd_pessoa_fisica
-
+            join tasy.especialidade_medica e on  t.cd_especialidade=e.cd_especialidade
             WHERE RANK <=1 AND rownum<=10
                     ";
             if (cd_pessoa_fisica is not null)
             {
-                sql = sql + " AND cd_pessoa_fisica=:cd_pessoa_fisica";
+                sql = sql + " AND t.cd_pessoa_fisica=:cd_pessoa_fisica";
             }
 
             try
@@ -92,5 +96,51 @@ namespace Decida.Sj.Infrastructure.Repositories
             }
             return agendas; // Retornará null se não achar registro
         }
+
+        public async Task<string> UpdateAppointmentRepoAsync(AgendaEntity agenda,int cd_convenio,string cd_usuario_convenio,string dt_validade_carteira) 
+        {
+
+            string queryString = @"
+        UPDATE TASY.AGENDA_CONSULTA SET 
+            IE_STATUS_AGENDA = 'N',
+            DT_ATUALIZACAO = sysdate,
+            NM_USUARIO = :usuario,
+            CD_AGENDA = :cd_agenda,
+            CD_PESSOA_FISICA = :cd_pessoa_fisica,
+            CD_CONVENIO = :cd_convenio,
+            CD_USUARIO_CONVENIO = :cd_usuario_convenio,
+            DT_VALIDADE_CARTEIRA = :dt_validade_carteira
+        WHERE NR_SEQUENCIA = :nr_sequencia";
+
+            try
+            {
+                using (IDbConnection connection = new OracleConnection(_connectionString))
+                {
+                   
+
+                    var affectedRows = await connection.ExecuteAsync(queryString, new
+                    {
+                        usuario = _userTasy,
+                        cd_agenda = agenda.CdAgenda,
+                        cd_pessoa_fisica = agenda.CdPessoaFisica,
+                        cd_convenio = cd_convenio,
+                        cd_usuario_convenio = cd_usuario_convenio,
+                        dt_validade_carteira = dt_validade_carteira,
+                        nr_sequencia = agenda.NrSequencia
+                    });
+
+                    return affectedRows > 0 ? "OK" : "Nenhuma linha atualizada.";
+                }
+            }
+            catch (Exception ex)
+            {
+                 
+                throw;
+            }
+
+
+
+        }
+
     }
 }

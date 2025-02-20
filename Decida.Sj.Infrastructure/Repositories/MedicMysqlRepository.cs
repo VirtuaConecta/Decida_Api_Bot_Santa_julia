@@ -8,7 +8,7 @@ using Dapper;
 using Decida.Sj.Applications.Interfaces.Dto;
 using Decida.Sj.Applications.Interfaces.Repositories;
 using Decida.Sj.Core.Entities;
-using Decida.Sj.Core.Entity;
+using Decida.Sj.Core.Entities;
 using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
 namespace Decida.Sj.Infrastructure.Repositories

@@ -12,12 +12,12 @@ namespace Decida.Sj.Infrastructure.Services
 {
     public class HealthServices : IHealthServices
     {
-        
+
         private readonly IHealthPlanMysqlRepository _plan;
 
         public HealthServices(IHealthPlanMysqlRepository plan)
         {
-          
+
             _plan = plan;
         }
         public async Task<List<HealthPlanEntity>> GetHealthPlanListAsyncService()
@@ -37,5 +37,25 @@ namespace Decida.Sj.Infrastructure.Services
 
             return HeatlthPlanRepoReturn;
         }
+
+        public async Task<List<PlanCareEntity>> GetPlanCareListByCompanyAsyncService(int cd_convenio)
+        {
+            var PlanRepoReturn = new List<PlanCareEntity>();
+
+            try
+            {
+                PlanRepoReturn = await _plan.GetPlanListByCompany(cd_convenio);
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+            return PlanRepoReturn;
+        }
+
+      
     }
 }

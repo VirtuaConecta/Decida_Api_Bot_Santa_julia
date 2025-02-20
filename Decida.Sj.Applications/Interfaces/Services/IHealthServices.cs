@@ -1,4 +1,5 @@
 ﻿using Decida.Sj.Core.Entities;
+using Decida.Sj.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,5 +11,6 @@ namespace Decida.Sj.Applications.Interfaces.Services
     public interface IHealthServices
     {
         Task<List<HealthPlanEntity>> GetHealthPlanListAsyncService();
+        Task<List<PlanCareEntity>> GetPlanCareListByCompanyAsyncService(int cd_convenio);
     }
 }
