@@ -68,7 +68,35 @@ namespace Decida.Sj.Infrastructure.Repositories
             return MadicalRepoList;
         }
 
+        public async Task<List<MedicEntity>> GetMedListByPlanEspecialtyRepository(int cd_especialidade,int id_convenio)
+        {
+            var MadicalRepoList = new List<MedicEntity>();
+          
+            try
+            {
+                string sql = @"
+                    SELECT m.ID_MEDICO,e.CD_PESSOA_FISICA, e.NM_PESSOA_FISICA FROM api_santa_julia.ESPECIALIDADE_MEDICO e
+                    join MEDICO_CONVENIO c on e.CD_PESSOA_FISICA= c.cd_pessoa_fisica
+                    join MEDICOS m on e.CD_PESSOA_FISICA=m.CD_PESSOA_FISICA
+                    join CONVENIOS cv on c.cd_convenio = cv.CD_CONVENIO
+                    where e.CD_ESPECIALIDADE =@CD_ESPECIALIDADE and cv.ID_CONVENIO=@ID_CONVENIO
+                    ";
 
+                var p = new DynamicParameters();
+
+                p.Add("@CD_ESPECIALIDADE", cd_especialidade);
+                p.Add("@ID_CONVENIO", id_convenio);
+                using (var conn = new MySqlConnection(_connectionString))
+                {
+                    MadicalRepoList = (await conn.QueryAsync<MedicEntity>(sql, p)).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+            }
+            return MadicalRepoList;
+        }
 
 
     }

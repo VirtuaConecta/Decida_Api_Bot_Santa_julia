@@ -33,7 +33,7 @@ namespace Decida.Sj.Applications.UseCases
 
                     foreach (var item in plan)
                     {
-                        listHealth += $"{item.Sequence} - {item.DsPlano}\r\n ";
+                        listHealth += $"\r\n{item.Sequence} - {item.DsPlano}\r\n ";
 
 
                     }

@@ -5,16 +5,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Decida.Sj.Core.Entities
+namespace Decida.Sj.Applications.Model
 {
-    public class PacienteEntity
+    public class PacientDTO
     {
         public Cpf? PacientCpf { get; set; }
-        public string PacientName { get; set; }=string.Empty;
-        public int PacienteId{ get; set; }
+        public string PacientName { get; set; } = string.Empty;
+        public int PacienteId { get; set; }
         public int PacientIdCare { get; set; }
-       
+        public int PacientIndexCare { get; set; }
         public string PacientCare { get; set; }
-    
     }
 }

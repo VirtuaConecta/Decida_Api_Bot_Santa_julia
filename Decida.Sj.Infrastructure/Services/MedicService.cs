@@ -37,5 +37,22 @@ namespace Decida.Sj.Infrastructure.Services
 
             return MedicRepoReturn;
         }
+
+        public async Task<List<MedicEntity>> GetMedicListByHealthPlanEspecialtyAsyncService(int cd_especialida,int id_convenio)
+        {
+            var MedicRepoReturn = new List<MedicEntity>();
+
+            try
+            {
+                MedicRepoReturn = await _medic.GetMedListByPlanEspecialtyRepository(cd_especialida, id_convenio);
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message);
+            }
+
+            return MedicRepoReturn;
+        }
     }
 }

@@ -11,9 +11,10 @@ namespace Decida.Sj.Core.Entities
 
         public int CdConvenio { get; set; }
         public string CdUsuarioConvenio { get; set; }
-        public int CdPlano { get; set; }
+        public string CdPlano { get; set; }
         public DateTime DtValidadeCarteira { get; set; }
 
+        public int cdPessoaFisicaPaciente { get; set; }
         public string CdCategoria { get; set; }
     }
  

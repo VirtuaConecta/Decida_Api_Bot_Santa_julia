@@ -1,4 +1,5 @@
-﻿using Decida.Sj.Core.Entities;
+﻿using Decida.Sj.Applications.Model;
+using Decida.Sj.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,6 @@ namespace Decida.Sj.Applications.Interfaces.UseCases
 {
     public interface IGetPacientDataUseCase
     {
-        Task<(bool status, PacienteEntity pacient)> GetPacientData(string cpf);
+        Task<(bool status, PacientDTO pacient)> GetPacientData(string cpf);
     }
 }

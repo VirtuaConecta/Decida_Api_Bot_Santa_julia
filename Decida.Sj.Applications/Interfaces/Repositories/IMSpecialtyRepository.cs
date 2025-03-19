@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Decida.Sj.Applications.Interfaces.Repositories
 {
-    public interface IMSpecialtyMysqlRepository
+    public interface IMSpecialtyRepository
     {
-        Task<List<MedicalSpecialtyEntity>> GetMedSpecListRepsitory();
-        Task<MedicalSpecialtyEntity> GetMedSpecByIdRepsitory(int id);
+        Task<List<MedicalSpecialtyEntity>> GetMedSpecListRepository(int? cd_convenio );
+        Task<MedicalSpecialtyEntity> GetMedSpecByIdRepository(int id);
     }
 }

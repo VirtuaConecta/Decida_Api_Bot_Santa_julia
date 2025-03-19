@@ -48,7 +48,7 @@ namespace Decida.Sj.Applications.Services
                 if (agendaSelecionada == null)
                     return (false, JsonSerializer.Serialize(new { error = "ID não encontrado na agenda." }));
                 string msg = string.Format(_mensagens.ConfirmaAgenda, 
-                    agendaSelecionada.NmPessoaFisica, agendaSelecionada.DsEspecialidade, agendaSelecionada.Dia, agendaSelecionada.DiaSemana, agendaSelecionada.Hora);
+                    agendaSelecionada.NmPessoaFisicaMedico, agendaSelecionada.DsEspecialidade, agendaSelecionada.Dia, agendaSelecionada.DiaSemana, agendaSelecionada.Hora);
              
                 
                 // Retorna o JSON do registro encontrado

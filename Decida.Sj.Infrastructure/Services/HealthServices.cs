@@ -26,7 +26,7 @@ namespace Decida.Sj.Infrastructure.Services
 
             try
             {
-                HeatlthPlanRepoReturn = await _plan.GetHelthPlanList();
+                HeatlthPlanRepoReturn = await _plan.GetHelthPlanListRepoAsync();
 
             }
             catch (Exception ex)
@@ -44,7 +44,7 @@ namespace Decida.Sj.Infrastructure.Services
 
             try
             {
-                PlanRepoReturn = await _plan.GetPlanListByCompany(cd_convenio);
+                PlanRepoReturn = await _plan.GetPlanListByCompanyRepoAsync(cd_convenio);
 
             }
             catch (Exception ex)

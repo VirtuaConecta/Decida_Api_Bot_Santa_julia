@@ -72,7 +72,7 @@ namespace Decida.Sj.BotApi.Controllers
         [HttpGet("getPlan/{id}")]
         public async Task<IActionResult> getPlan(int id)
         {
-
+            Console.WriteLine($"busca lista de planos Id plano: {id}");
 
             try
             {

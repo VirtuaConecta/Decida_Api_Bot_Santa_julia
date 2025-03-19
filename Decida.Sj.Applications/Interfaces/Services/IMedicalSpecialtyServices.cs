@@ -9,6 +9,6 @@ namespace Decida.Sj.Applications.Interfaces.Services
 {
     public interface IMedicalSpecialtyServices
     {
-        Task<List<MedicalSpecialtyEntity>> GetHMedicalSpecialtyListAsyncService();
+        Task<List<MedicalSpecialtyEntity>> GetHMedicalSpecialtyListAsyncService(int? cd_convenio);
     }
 }

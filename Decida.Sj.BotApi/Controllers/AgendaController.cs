@@ -4,7 +4,9 @@ using Decida.Sj.Applications.Model;
 using Decida.Sj.Applications.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
 using System.Security.Policy;
+using System.Text.Json.Serialization;
 
 namespace Decida.Sj.BotApi.Controllers
 {
@@ -125,13 +127,20 @@ namespace Decida.Sj.BotApi.Controllers
             });
         }
 
-
+ 
         [HttpPost("criaAgendamento")]
-         public async Task<IActionResult> PostAgenda([FromBody] RequestAgendaDTO agenda )
+         public async Task<IActionResult> PostAgenda([FromBody] dynamic agenda )
         {
             try
             {
-                var (status, message) = await _insertNewAgendaToPacientUseCase.Execute(agenda);
+                var agendaStr = agenda.ToString();
+
+                Console.WriteLine(agendaStr);
+
+                RequestAgendaDTO dataAgenda = JsonConvert.DeserializeObject<RequestAgendaDTO> (agendaStr);
+
+
+                var (status, message) = await _insertNewAgendaToPacientUseCase.Execute(dataAgenda);
                 if (status && !string.IsNullOrEmpty(message))
                 {
                     return Ok(new
@@ -165,5 +174,13 @@ namespace Decida.Sj.BotApi.Controllers
             }
 
         }
+
+ 
+ 
+
+
+
+
+
     }
 }

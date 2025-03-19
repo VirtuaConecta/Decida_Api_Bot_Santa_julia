@@ -9,9 +9,9 @@ namespace Decida.Sj.Applications.Interfaces.Repositories
 {
     public interface IHealthPlanMysqlRepository
     {
-        Task<List<HealthPlanEntity>> GetHelthPlanList();
-        Task<HealthPlanEntity> GetHelthPlanByID(int id);
+        Task<List<HealthPlanEntity>> GetHelthPlanListRepoAsync();
+        Task<HealthPlanEntity> GetHelthPlanByIDRepoAsync(int id);
 
-        Task<List<PlanCareEntity>> GetPlanListByCompany(int id_convenio);
+        Task<List<PlanCareEntity>> GetPlanListByCompanyRepoAsync(int id_convenio);
     }
 }

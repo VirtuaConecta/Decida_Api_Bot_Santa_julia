@@ -25,7 +25,7 @@ namespace Decida.Sj.Infrastructure.Repositories
 
         private IDbConnection Connection => new MySqlConnection(_connectionString);
 
-        public async Task<List<HealthPlanEntity>>GetHelthPlanList()
+        public async Task<List<HealthPlanEntity>>GetHelthPlanListRepoAsync()
         {
              var convenios = new List<HealthPlanEntity>();
             try
@@ -47,7 +47,7 @@ namespace Decida.Sj.Infrastructure.Repositories
         }
 
 
-        public async Task<HealthPlanEntity> GetHelthPlanByID(int id)
+        public async Task<HealthPlanEntity> GetHelthPlanByIDRepoAsync(int id)
         {
             var convenios = new HealthPlanEntity();
 
@@ -73,7 +73,7 @@ namespace Decida.Sj.Infrastructure.Repositories
         }
 
 
-        public async Task<List<PlanCareEntity>> GetPlanListByCompany(int id_convenio)
+        public async Task<List<PlanCareEntity>> GetPlanListByCompanyRepoAsync(int id_convenio)
         {
             var plans = new List<PlanCareEntity>();
             try

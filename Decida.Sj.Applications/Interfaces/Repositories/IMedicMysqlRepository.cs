@@ -12,5 +12,6 @@ namespace Decida.Sj.Applications.Interfaces.Repositories
     {
         Task<List<MedicEntity>> GetMedListRepsitory();
         Task<MedicEntity> GetMedByIdRepsitory(int id);
+        Task<List<MedicEntity>> GetMedListByPlanEspecialtyRepository(int cd_especialidade, int cd_convenio);
     }
 }

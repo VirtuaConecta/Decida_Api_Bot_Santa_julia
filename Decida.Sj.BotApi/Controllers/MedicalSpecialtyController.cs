@@ -23,14 +23,14 @@ namespace Decida.Sj.BotApi.Controllers
             _plan = plan;
         }
 
-        [HttpGet]
-        public async Task<IActionResult> getMedicalSpecialty()
+        [HttpGet("{id_convenio}")]
+        public async Task<IActionResult> getMedicalSpecialty(int? id_convenio)
         {
            
 
             try
             {
-                var(status, plan) = await _plan.GetMedicalSpecialtyDataUseCaseList();
+                var(status, plan) = await _plan.GetMedicalSpecialtyDataUseCaseList(id_convenio);
                 // Se encontrou, retorna status 200 (OK)
                 if (status)
                 {

@@ -17,7 +17,9 @@ namespace Decida.Sj.Core.Entities
         public string HoraInicial { get; set; } = string.Empty;
         public string HoraFinal { get; set; } = string.Empty;
         public int CdPessoaFisica { get; set; }
+        public int CdPessoaFisicaMedico { get; set; }
         public string NmPessoaFisica { get; set; } = string.Empty;
+        public string NmPessoaFisicaMedico { get; set; } = string.Empty;
         public string DsEspecialidade { get; set; } = string.Empty;
     }
 

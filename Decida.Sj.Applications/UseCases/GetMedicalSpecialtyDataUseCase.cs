@@ -14,26 +14,31 @@ namespace Decida.Sj.Applications.UseCases
     {
        
         private readonly IMedicalSpecialtyServices _MedicalSpec;
+        private readonly IHealthServices _healthServices;
 
-        public GetMedicalSpecialtyDataUseCase(IMedicalSpecialtyServices MedicalSpec)
+        public GetMedicalSpecialtyDataUseCase(IMedicalSpecialtyServices MedicalSpec, IHealthServices healthServices)
         {
 
             _MedicalSpec = MedicalSpec;
+            _healthServices = healthServices;
         }
 
-        public async Task<(bool status,string listMedicalSpecialty)> GetMedicalSpecialtyDataUseCaseList()
+        public async Task<(bool status,string listMedicalSpecialty)> GetMedicalSpecialtyDataUseCaseList(int? id_convenio)
         {
             try
             {
+
+                var companies =  (await _healthServices.GetHealthPlanListAsyncService()).Where(x=>x.id_convenio== id_convenio).FirstOrDefault();
+
                 string listMedicalSpecialty = "";
-                var plan = await _MedicalSpec.GetHMedicalSpecialtyListAsyncService();
+                var plan = await _MedicalSpec.GetHMedicalSpecialtyListAsyncService(companies.cd_convenio);
 
                 if (plan != null && plan.Count > 0)
                 {
 
                     foreach (var item in plan)
                     {
-                        listMedicalSpecialty += $"{item.id_especialidade} - {item.ds_especialidade}\r\n ";
+                        listMedicalSpecialty += $"{item.CdEspecialidade} - {item.DsEspecialidade}\r\n ";
 
 
                     }

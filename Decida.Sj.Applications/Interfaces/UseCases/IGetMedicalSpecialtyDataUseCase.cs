@@ -8,6 +8,6 @@ namespace Decida.Sj.Applications.Interfaces.UseCases
 {
     public interface IGetMedicalSpecialtyDataUseCase
     {
-        Task<(bool status, string listMedicalSpecialty)> GetMedicalSpecialtyDataUseCaseList();
+        Task<(bool status, string listMedicalSpecialty)> GetMedicalSpecialtyDataUseCaseList(int? cd_convenio);
     }
 }

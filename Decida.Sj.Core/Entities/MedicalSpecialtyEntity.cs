@@ -8,9 +8,9 @@ namespace Decida.Sj.Core.Entities
 {
     public class MedicalSpecialtyEntity
     {
-        public int id_especialidade { get; set; }
-        public string ds_especialidade { get; set; }=string.Empty;
-        public int cd_especialidade { get; set; }
+        public int IdEspecialidade { get; set; }
+        public string DsEspecialidade { get; set; }=string.Empty;
+        public int CdEspecialidade { get; set; }
 
  
     }

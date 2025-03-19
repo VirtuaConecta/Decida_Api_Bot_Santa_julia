@@ -5,7 +5,7 @@ using Decida.Sj.Core.Entities;
 using Oracle.ManagedDataAccess.Client;
 using Microsoft.Extensions.Options;
 using System.Data;
-using Decida.Sj.Core.Entities;
+ 
 namespace Decida.Sj.Infrastructure.Repositories
 {
     public class AgendaOracleRepository : IAgendaOracleRepository
@@ -27,7 +27,7 @@ namespace Decida.Sj.Infrastructure.Repositories
               string sql = @"
            SELECT t.NR_SEQUENCIA NrSequencia, t.DIA Dia, t.HORA Hora, t.DIA_SEMANA DiaSemana, t.RANK Rank, 
                t.CD_AGENDA CdAgenda, t.HORA_INICIAL HoraInicial, t.HORA_FINAL HoraFinal,
-               t.cd_pessoa_fisica AS CdPessoaFisica, f.nm_pessoa_fisica NmPessoaFisica,,e.ds_especialidade   FROM (
+               t.cd_pessoa_fisica AS CdPessoaFisicaMedico, f.nm_pessoa_fisica NmPessoaFisicaMedico,e.ds_especialidade DsEspecialidade  FROM (
             SELECT NR_SEQUENCIA,to_char(DT_AGENDA,'dd/mm/yyyy') DIA, to_char(DT_AGENDA, 'hh24:mi') HORA, to_char(DT_AGENDA, 'day') DIA_SEMANA, RANK() OVER(PARTITION BY DIA,HORA_INICIAL ORDER BY DT_AGENDA) RANK,
             CD_AGENDA, HORA_INICIAL, HORA_FINAL ,cd_pessoa_fisica,cd_especialidade
 
@@ -97,7 +97,7 @@ namespace Decida.Sj.Infrastructure.Repositories
             return agendas; // Retornará null se não achar registro
         }
 
-        public async Task<string> UpdateAppointmentRepoAsync(AgendaEntity agenda,int cd_convenio,string cd_usuario_convenio,string dt_validade_carteira) 
+        public async Task<string> UpdateAppointmentRepoAsync(AgendaConsultaAgendarEntity agenda) 
         {
 
             string queryString = @"
@@ -108,8 +108,12 @@ namespace Decida.Sj.Infrastructure.Repositories
             CD_AGENDA = :cd_agenda,
             CD_PESSOA_FISICA = :cd_pessoa_fisica,
             CD_CONVENIO = :cd_convenio,
+            CD_PLANO=:cd_plano,
             CD_USUARIO_CONVENIO = :cd_usuario_convenio,
-            DT_VALIDADE_CARTEIRA = :dt_validade_carteira
+            DT_VALIDADE_CARTEIRA = :dt_validade_carteira ,
+            CD_CATEGORIA = :cd_categoria,
+            IE_FORMA_AGENDAMENTO = 11
+
         WHERE NR_SEQUENCIA = :nr_sequencia";
 
             try
@@ -122,11 +126,13 @@ namespace Decida.Sj.Infrastructure.Repositories
                     {
                         usuario = _userTasy,
                         cd_agenda = agenda.CdAgenda,
-                        cd_pessoa_fisica = agenda.CdPessoaFisica,
-                        cd_convenio = cd_convenio,
-                        cd_usuario_convenio = cd_usuario_convenio,
-                        dt_validade_carteira = dt_validade_carteira,
-                        nr_sequencia = agenda.NrSequencia
+                        cd_pessoa_fisica = agenda.cdPessoaFisicaPaciente,
+                        cd_convenio = agenda.CdConvenio,
+                        cd_plano =agenda.CdPlano,
+                        cd_usuario_convenio = agenda.CdUsuarioConvenio,
+                        dt_validade_carteira = agenda.DtValidadeCarteira,
+                        nr_sequencia = agenda.NrSequencia,
+                        cd_categoria = agenda.CdCategoria
                     });
 
                     return affectedRows > 0 ? "OK" : "Nenhuma linha atualizada.";
@@ -134,8 +140,8 @@ namespace Decida.Sj.Infrastructure.Repositories
             }
             catch (Exception ex)
             {
-                 
-                throw;
+
+                return $"Erro em UpdateAppointmentRepoAsync: {ex.Message}";
             }
 
 

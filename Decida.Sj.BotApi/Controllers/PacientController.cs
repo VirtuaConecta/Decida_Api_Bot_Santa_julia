@@ -37,7 +37,7 @@ namespace Decida.Sj.BotApi.Controllers
                     {   id= pacient.PacienteId,
                         name= pacient.PacientName,
                         convenio=pacient.PacientCare,
-                        id_convenio = pacient.PacientIdCare,
+                        id_convenio = pacient.PacientIndexCare,
                         status = true
                     });
                 }

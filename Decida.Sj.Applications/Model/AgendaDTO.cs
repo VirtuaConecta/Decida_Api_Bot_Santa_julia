@@ -21,8 +21,16 @@ namespace Decida.Sj.Applications.Model
         [JsonPropertyName("cd_pessoa_fisica")]
         public int CdPessoaFisica { get; set; }
 
+        [JsonPropertyName("cd_pessoa_fisica_medico")]
+        public int CdPessoaFisicaMedico { get; set; }
+
         [JsonPropertyName("nm_pessoa_fisica")]
         public string NmPessoaFisica { get; set; }
+
+        [JsonPropertyName("nm_pessoa_fisica_medico")]
+        public string NmPessoaFisicaMedico { get; set; }
+
+        
 
         [JsonPropertyName("dia")]
         public string Dia { get; set; }

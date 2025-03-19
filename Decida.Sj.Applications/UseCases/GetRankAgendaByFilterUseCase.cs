@@ -16,11 +16,11 @@ namespace Decida.Sj.Applications.UseCases
     {
         private readonly IAgendaOracleRepository _agenda;
         private readonly IHealthPlanMysqlRepository _healthPlan;
-        private readonly IMSpecialtyMysqlRepository _mSpecialty;
+        private readonly IMSpecialtyRepository _mSpecialty;
         private readonly IMedicMysqlRepository _medic;
 
         public GetRankAgendaByFilterUseCase(IAgendaOracleRepository agenda,
-            IHealthPlanMysqlRepository HealthPlan, IMSpecialtyMysqlRepository mSpecialty, IMedicMysqlRepository medic)
+            IHealthPlanMysqlRepository HealthPlan, IMSpecialtyRepository mSpecialty, IMedicMysqlRepository medic)
         {
             _agenda = agenda;
             _healthPlan = HealthPlan;
@@ -37,13 +37,13 @@ namespace Decida.Sj.Applications.UseCases
             if (cd_especialidade == 0)
                 return (false, "", "");
 
-            var convenio = await _healthPlan.GetHelthPlanByID(cd_convenio);
+            var convenio = await _healthPlan.GetHelthPlanByIDRepoAsync(cd_convenio);
             if (convenio == null)
                 return (false, "Convênio não encontrado.", "");
 
-            var especialidade = await _mSpecialty.GetMedSpecByIdRepsitory(cd_especialidade);
-            if (especialidade == null)
-                return (false, "Especialidade não encontrada.", "");
+          //  var especialidade = await _mSpecialty.GetMedSpecByIdRepository(cd_especialidade);
+           // if (especialidade == null)
+           //     return (false, "Especialidade não encontrada.", "");
 
             if (cd_pessoa_fisica_medico > 0)
             {
@@ -57,7 +57,7 @@ namespace Decida.Sj.Applications.UseCases
             try
             {
              
-                var listAgendaRepo = await _agenda.GetAgendaByFIltersRepoAsync(convenio.cd_convenio, especialidade.cd_especialidade, cd_pessoa_fisica_medico);
+                var listAgendaRepo = await _agenda.GetAgendaByFIltersRepoAsync(convenio.cd_convenio, cd_especialidade, cd_pessoa_fisica_medico);
 
                 if (listAgendaRepo != null && listAgendaRepo.Count > 0)
                 {
@@ -71,8 +71,9 @@ namespace Decida.Sj.Applications.UseCases
                         if (id_agenda > 1)
                             indexListJson +=  ",";
 
-                        list_agenda += $"{id_agenda} - {item.Dia} ({item.DiaSemana.Trim()}) às {item.Hora} \r\n ";
-                        indexListJson += $"{{\"index\":{id_agenda},\"nr_sequencia\":{item.NrSequencia},\"cd_agenda\":{item.CdAgenda},\"cd_pessoa_fisica_medico\":{item.CdPessoaFisica},\"nm_pessoa_fisica_medico\":\"{item.NmPessoaFisica}\",\"dia\":\"{item.Dia}\",\"hora\":\"{item.Hora}\",\"DiaSemana\":\"{item.DiaSemana}\",\"ds_especialidade\":\"{item.DsEspecialidade}\" ,\"ds_convenio\":\"{convenio.cd_convenio}\"}}";
+                        list_agenda += $"\r\n{id_agenda} - {item.Dia} ({item.DiaSemana.Trim()}) às {item.Hora} \r\n Dr(a):{item.NmPessoaFisicaMedico}\r\n";
+
+                        indexListJson += $"{{\"index\":{id_agenda},\"nr_sequencia\":{item.NrSequencia},\"cd_agenda\":{item.CdAgenda},\"cd_pessoa_fisica_medico\":{item.CdPessoaFisicaMedico},\"nm_pessoa_fisica_medico\":\"{item.NmPessoaFisicaMedico}\",\"dia\":\"{item.Dia}\",\"hora\":\"{item.Hora}\",\"DiaSemana\":\"{item.DiaSemana}\",\"ds_especialidade\":\"{item.DsEspecialidade}\" ,\"ds_convenio\":\"{convenio.ds_convenio}\"}}";
                         
                         id_agenda++;
                     }

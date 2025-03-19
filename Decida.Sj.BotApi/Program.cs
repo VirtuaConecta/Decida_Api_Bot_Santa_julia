@@ -21,7 +21,7 @@ builder.Services.Configure<ConfigApiOptionsDTO>(
 
 builder.Services.AddTransient<IPacientsServices, PacientsServices>();
 
-builder.Services.AddSingleton<IMSpecialtyMysqlRepository, MSpecialtyMysqlRepository>();
+builder.Services.AddSingleton<IMSpecialtyRepository, MedEspecialtyOracleRepository>();
 builder.Services.AddTransient<IGetPacientDataUseCase, GetPacientDataUseCase>();
 builder.Services.AddTransient<IGetMedicalSpecialtyDataUseCase, GetMedicalSpecialtyDataUseCase>();
 

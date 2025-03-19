@@ -12,7 +12,7 @@ using Microsoft.Extensions.Options;
 using MySql.Data.MySqlClient;
 namespace Decida.Sj.Infrastructure.Repositories
 {
-   public class MSpecialtyMysqlRepository : IMSpecialtyMysqlRepository
+   public class MSpecialtyMysqlRepository : IMSpecialtyRepository
     {
         private readonly string _connectionString;
 
@@ -23,12 +23,13 @@ namespace Decida.Sj.Infrastructure.Repositories
 
         private IDbConnection Connection => new MySqlConnection(_connectionString);
 
-        public async Task<List<MedicalSpecialtyEntity>>GetMedSpecListRepsitory()
-        {
-             var MadicalEspcRepoList = new List<MedicalSpecialtyEntity>();
+        public async Task<List<MedicalSpecialtyEntity>>GetMedSpecListRepository(int? cd_convenio)
+        {//int? cd_convenio não é usado aqui. está apenas para manter a compatibilidade da interface com a classe equivalente do oracle
+
+            var MadicalEspcRepoList = new List<MedicalSpecialtyEntity>();
             try
             {
-                string sql = @"SELECT ID_ESPECIALIDADE,CD_ESPECIALIDADE,DS_ESPECIALIDADE FROM
+                string sql = @"SELECT ID_ESPECIALIDADE IdEspecialidade,CD_ESPECIALIDADE CdEspecialidade,DS_ESPECIALIDADE DsEspecialidade FROM
                                 ESPECIALIDADES order by ID_ESPECIALIDADE";
 
 
@@ -44,12 +45,13 @@ namespace Decida.Sj.Infrastructure.Repositories
             return MadicalEspcRepoList;
         }
 
-        public async Task<MedicalSpecialtyEntity> GetMedSpecByIdRepsitory(int id)
+
+        public async Task<MedicalSpecialtyEntity> GetMedSpecByIdRepository(int id)
         {
             var MedicalEspcRepoById = new MedicalSpecialtyEntity();
             try
             {
-                string sql = @"SELECT ID_ESPECIALIDADE,CD_ESPECIALIDADE,DS_ESPECIALIDADE FROM
+                string sql = @"SELECT ID_ESPECIALIDADE IdEspecialidade,CD_ESPECIALIDADE CdEspecialidade,DS_ESPECIALIDADE DsEspecialidade FROM
                                 ESPECIALIDADES where ID_ESPECIALIDADE=@ID_ESPECIALIDADE";
 
                 DynamicParameters p = new DynamicParameters();

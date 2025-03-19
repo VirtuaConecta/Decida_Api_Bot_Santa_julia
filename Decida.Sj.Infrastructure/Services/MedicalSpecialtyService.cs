@@ -13,20 +13,20 @@ namespace Decida.Sj.Infrastructure.Services
     public class MedicalSpecialtyServices : IMedicalSpecialtyServices
     {
         
-        private readonly IMSpecialtyMysqlRepository _medSpec;
+        private readonly IMSpecialtyRepository _medSpec;
 
-        public MedicalSpecialtyServices(IMSpecialtyMysqlRepository medSpec)
+        public MedicalSpecialtyServices(IMSpecialtyRepository medSpec)
         {
 
             _medSpec = medSpec;
         }
-        public async Task<List<MedicalSpecialtyEntity>> GetHMedicalSpecialtyListAsyncService()
+        public async Task<List<MedicalSpecialtyEntity>> GetHMedicalSpecialtyListAsyncService(int? cd_convenio)
         {
             var MedSpecialPlanRepoReturn = new List<MedicalSpecialtyEntity>();
 
             try
             {
-                MedSpecialPlanRepoReturn = await _medSpec.GetMedSpecListRepsitory();
+                MedSpecialPlanRepoReturn = await _medSpec.GetMedSpecListRepository(cd_convenio);
 
             }
             catch (Exception ex)

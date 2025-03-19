@@ -10,5 +10,6 @@ namespace Decida.Sj.Applications.Interfaces.Services
     public interface IMedicService
     {
         Task<List<MedicEntity>> GetMedicListAsyncService();
+        Task<List<MedicEntity>> GetMedicListByHealthPlanEspecialtyAsyncService(int cd_especialida, int cd_convenio);
     }
 }
